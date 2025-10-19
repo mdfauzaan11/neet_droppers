@@ -1,0 +1,24 @@
+# Python and Flask cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env/
+env/
+
+# Environment variables (sensitive data)
+.env
+
+# Database and migrations
+*.db
+*.sqlite3
+instance/
+migrations/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db

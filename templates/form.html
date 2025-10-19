@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>NEET Droppers</h1>
+    </header>
+    <nav>
+      <div class="nav-container">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('study_page') }}">Study Materials</a>
+          <a href="{{ url_for('community_page') }}">Community</a>
+          <a href="{{ url_for('chat_page') }}">Chatbot</a>
+          <a href="#">Login/SignUp</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <form action="{{ url_for('submit') }}" method="post">
+      <h1>Form</h1>
+      <h2>Contact Information</h2>
+      <p>Required fields are marked with an asterisk (*).</p>
+      <p>Name: * <input type="text" name="name" required /></p>
+      <p>Email: * <input type="email" name="email" required /></p>
+      <p>Phone: <input type="tel" name="phone" /></p>
+
+      <fieldset>
+        <legend>Class</legend>
+        <p>
+          <input type="radio" name="class" value="11th" /> 11th
+          <input type="radio" name="class" value="12th" /> 12th
+          <input type="radio" name="class" value="1st Dropper" /> 1st Dropper
+          <input type="radio" name="class" value="2nd Dropper" /> 2nd Dropper
+        </p>
+      </fieldset>
+
+      <p>City: <input type="text" name="city" /></p>
+      <p>State: <input type="text" name="state" /></p>
+
+      <h2>Review</h2>
+      <p>How did you hear about us?</p>
+      <p>
+        <select name="source">
+          <option value="">---Select---</option>
+          <option value="friend">Friend</option>
+          <option value="social media">Social Media</option>
+          <option value="advertisement">Advertisement</option>
+          <option value="other">Other</option>
+        </select>
+      </p>
+
+      <p>Comments:</p>
+      <p><textarea name="comments" cols="30" rows="10"></textarea></p>
+
+      <p><input type="submit" value="Submit" /></p>
+      <p><input type="reset" value="Reset" /></p>
+    </form>
+
+    <footer>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <p>&copy; 2025 NEET Droppers. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

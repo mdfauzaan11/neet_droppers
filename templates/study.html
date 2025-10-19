@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Materials</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>NEET Droppers</h1>
+    </header>
+    <nav>
+      <div class="nav-container">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('study_page') }}">Study Materials</a>
+          <a href="{{ url_for('community_page') }}">Community</a>
+          <a href="{{ url_for('chat_page') }}">Chatbot</a>
+          <a href="#">Login/SignUp</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <h1>Study Materials</h1>
+
+      <section class="resources">
+        <h2>Available Resources</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Download</th>
+          </tr>
+          <tr>
+            <td>11th NCERT Biology</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/kebo1dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>12th NCERT Biology</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/lebo1dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>11th NCERT Chemistry Part-1</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/kech1dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>11th NCERT Chemistry Part-2</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/kech2dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>12th NCERT Chemistry Part-1</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/lech1dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>12th NCERT Chemistry Part-2</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/ncert/lech2dd.zip') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>HC Verma Vol-1</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/hc_verma/HC VERMA 1') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>HC Verma Vol-2</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/hc_verma/HC VERMA 2') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>DC Pandey Vol-1</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/dc_pandey/DC Pandey Vol-1') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>DC Pandey Vol-2</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/dc_pandey/DC Pandey Vol-2') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>DC Pandey Vol-3</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/dc_pandey/DC Pandey Vol-3') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>DC Pandey Vol-4</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/dc_pandey/DC Pandey Vol-4') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>DC Pandey Vol-5</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/dc_pandey/DC Pandey Vol-5') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Syllabus</h2>
+        <p>Click the button below to download the NEET syllabus.</p>
+        <div class="button-container">
+          <a
+            href="{{ url_for('static', filename='neet_sm/syllabus.pdf') }}"
+            download
+            ><button>Click to download</button></a
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Allen Materials</h2>
+        <p>
+          Here are some study materials from Allen Coaching Institute to help
+          you prepare for NEET.
+        </p>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Download</th>
+          </tr>
+          <tr>
+            <td>Botany</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/allen/botany_exercise') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Physics</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/allen/physics_exercise') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Chemistry</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/allen/chemistry_exercise') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Zoology</td>
+            <td>
+              <a
+                href="{{ url_for('static', filename='neet_sm/allen/zoology_exercise') }}"
+                download
+                ><button>Click to download</button></a
+              >
+            </td>
+          </tr>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <p>&copy; 2025 NEET Droppers. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

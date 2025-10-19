@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+    <style>
+      .chat-container {
+        width: 80%;
+        max-width: 600px;
+        margin: 30px auto;
+        border: 2px solid #2a5298;
+        border-radius: 10px;
+        padding: 15px;
+        background: #fff;
+      }
+      .chat-box {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .user {
+        color: blue;
+        font-weight: bold;
+      }
+      .bot {
+        color: green;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 75%;
+        padding: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        background: #2a5298;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>NEET Droppers</h1>
+    </header>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="#">About</a>
+      <a href="{{ url_for('study_page') }}">Study Materials</a>
+      <a href="{{ url_for('community_page') }}">Community</a>
+      <a href="{{ url_for('chat_page') }}">Chatbot</a>
+      <a href="#">Login/SignUp</a>
+      <a href="#">Contact</a>
+    </nav>
+    <main>
+      <h1 style="text-align: center">AI Chatbot</h1>
+      <p style="text-align: center; color: #000000">
+        Your Personal Study Assistant for NEET Preparation
+      </p>
+    </main>
+    <div class="chat-container">
+      <div class="chat-box" id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="Type your question..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+      async function sendMessage() {
+        let input = document.getElementById("user-input").value;
+        if (!input) return;
+
+        let chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += "<p class='user'>You: " + input + "</p>";
+
+        let response = await fetch("/chatbot", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        });
+
+        let data = await response.json();
+        chatBox.innerHTML += "<p class='bot'>Bot: " + data.reply + "</p>";
+        document.getElementById("user-input").value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    </script>
+  </body>
+</html>

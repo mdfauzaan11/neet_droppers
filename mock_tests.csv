@@ -1,0 +1,16 @@
+subject,chapter,question,option_a,option_b,option_c,option_d,answer
+Physics,Mechanics,What is Newton's second law?,F=ma,F=m/v,F=mv,F=m+v,A
+Physics,Mechanics,What is the SI unit of force?,Newton,Joule,Watt,Pascal,A
+Physics,Mechanics,What is the acceleration of free fall?,9.8 m/s^2,10 m/s^2,8.9 m/s^2,9 m/s^2,A
+Physics,Electrostatics,Which law governs force between charges?,Coulomb's law,Ohm's law,Faraday's law,Kirchhoff's law,A
+Physics,Electrostatics,Unit of charge?,Coulomb,Volt,Ohm,Watt,A
+Chemistry,Organic Chemistry,Functional group of alcohol?,OH,CO,NH2,COOH,A
+Chemistry,Organic Chemistry,Which is an alkane?,Methane,Ethene,Ethyne,Benzene,A
+Chemistry,Inorganic Chemistry,Atomic number of Oxygen?,8,16,6,12,A
+Chemistry,Inorganic Chemistry,Formula of water?,H2O,CO2,NaCl,HCl,A
+Chemistry,Inorganic Chemistry,Which is a noble gas?,Neon,Oxygen,Nitrogen,Hydrogen,A
+Biology,Cell Structure,Which organelle is powerhouse?,Mitochondria,Nucleus,Ribosome,ER,A
+Biology,Cell Structure,Where is DNA located?,Nucleus,Cytoplasm,Ribosome,Cell membrane,A
+Biology,Genetics,Who is the father of genetics?,Mendel,Watson,Crick,Fisher,A
+Biology,Genetics,What carries genetic information?,DNA,RNA,Protein,Lipid,A
+Biology,Genetics,Which is a dominant trait example?,Brown eyes,Blue eyes,Green eyes,Red eyes,A

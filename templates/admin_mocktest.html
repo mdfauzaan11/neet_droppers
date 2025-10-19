@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Add Mock Test</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+    <style>
+      form {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      form p {
+        margin-bottom: 15px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        background: #2a5298;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background: #1e3c72;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="text-align: center; color: #ffffff">
+        Admin - Add Mock Test Question
+      </h1>
+    </header>
+
+    <form method="POST">
+      <p>
+        Subject:
+        <select name="subject" required>
+          <option value="">Select Subject</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Biology">Biology</option>
+        </select>
+      </p>
+
+      <p>
+        Chapter:
+        <input type="text" name="chapter" placeholder="Chapter name" required />
+      </p>
+
+      <p>
+        Question:
+        <textarea
+          name="question"
+          rows="3"
+          placeholder="Enter the question"
+          required
+        ></textarea>
+      </p>
+
+      <p>
+        Option A:
+        <input type="text" name="option_a" required />
+      </p>
+
+      <p>
+        Option B:
+        <input type="text" name="option_b" required />
+      </p>
+
+      <p>
+        Option C:
+        <input type="text" name="option_c" required />
+      </p>
+
+      <p>
+        Option D:
+        <input type="text" name="option_d" required />
+      </p>
+
+      <p>
+        Correct Option:
+        <select name="correct_option" required>
+          <option value="">Select Correct Option</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>
+      </p>
+
+      <p>
+        <input type="submit" value="Add Question" />
+      </p>
+    </form>
+  </body>
+</html>

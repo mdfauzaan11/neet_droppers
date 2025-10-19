@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mock Test Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+  </head>
+  <body>
+    <header><h1>NEET Droppers</h1></header>
+    <main
+      style="
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 2px solid #2a5298;
+        border-radius: 10px;
+      "
+    >
+      <h2>{{ subject }} - {{ chapter }} Result</h2>
+      <p>Total Questions: {{ total }}</p>
+      <p>Correct Answers: {{ correct }}</p>
+      <p>Wrong Answers: {{ wrong }}</p>
+      <p>Percentage: {{ percentage }}%</p>
+
+      <h3>Detailed Answers</h3>
+      {% for d in detailed_answers %}
+      <p><strong>Q: {{ d.question }}</strong></p>
+      <p>
+        Your Answer: {{ d.user_answer }} | Correct Answer: {{ d.correct_answer
+        }}
+      </p>
+      <hr />
+      {% endfor %}
+    </main>
+    <footer>
+      <p>&copy; 2025 NEET Droppers</p>
+    </footer>
+  </body>
+</html>

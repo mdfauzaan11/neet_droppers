@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>NEET Droppers</h1>
+    </header>
+
+    <nav>
+      <div class="nav-container">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('study_page') }}">Study Materials</a>
+          <a href="{{ url_for('community_page') }}">Community</a>
+          <a href="{{ url_for('chat_page') }}">Chatbot</a>
+          <a href="#">Login/SignUp</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Flex layout: main + sidebar -->
+    <main class="community-layout">
+      <!-- Left side (main content) -->
+      <div class="community-main">
+        <h1>Community</h1>
+        <p style="text-align: center; color: #000000">
+          A Supportive Space for NEET Droppers to Share, Learn, and Grow
+          Together.
+        </p>
+
+        <!-- Join Now Button -->
+        <div class="button-container top-join">
+          <a href="{{ url_for('form_page') }}" class="button">Join Now</a>
+        </div>
+
+        <!-- Success Stories Section -->
+        <section>
+          <h2 class="community-heading">Success Stories of Droppers</h2>
+          <div class="community-stories">
+            <article>
+              <h3>From Setback to Success: A NEET Dropper's Journey</h3>
+              <p>
+                After failing NEET twice, I decided to take a year off to
+                prepare seriously. I joined a coaching institute, followed a
+                strict study schedule, and focused on my weak areas. With
+                determination and consistent effort, I finally cleared NEET on
+                my third attempt and secured a seat in a top medical college.
+              </p>
+            </article>
+            <!-- User Story -->
+            <article>
+              <h3>Your Story Here</h3>
+              <p>
+                Share your NEET journey with us! Your experience can inspire and
+                motivate others in the community.
+              </p>
+              <div class="button-container">
+                <a href="{{ url_for('share_your_story') }}" class="button"
+                  >Share Your Story</a
+                >
+              </div>
+            </article>
+            {% for s in stories %}
+            <article>
+              <h3>
+                {{ s.name }} (Age: {{ s.age }}, Attempts: {{ s.attempts }})
+              </h3>
+              <p>{{ s.story }}</p>
+            </article>
+            {% else %}
+            <p style="text-align: center; color: #555">
+              No stories shared yet. Be the first to share your journey!
+            </p>
+            {% endfor %}
+          </div>
+        </section>
+        <section>
+          <h2>Blogs</h2>
+          <div class="community-stories">
+            <article>
+              <h3>Staying Motivated During NEET Preparation</h3>
+              <p>
+                Preparing for NEET can be a challenging and exhausting journey. Maintaining motivation is crucial to stay consistent and avoid burnout. Set achievable daily goals and celebrate small victories along the way. Surround yourself with a supportive environment—family, friends, or a study group can provide encouragement when you feel demotivated. Regular breaks, exercise, and hobbies can refresh your mind and improve focus. Remember, failures are part of the learning process; every mistake teaches you something valuable. Visualize your success and keep reminding yourself of the bigger goal. Consistency and self-belief are your strongest allies.
+              </p>
+            </article>
+            <article>
+              <h3>Effective Time Management for NEET Aspirants</h3>
+              <p>
+                Time management is one of the most critical factors for NEET success. Allocate time based on your strengths and weaknesses in Physics, Chemistry, and Biology. Start your day with difficult topics when your mind is fresh, and leave easier or revision topics for later. Use techniques like Pomodoro or time-blocking to stay productive without feeling overwhelmed. Regularly attempt mock tests and analyze your mistakes to improve efficiency. Avoid wasting time on distractions like social media. A well-structured timetable, combined with discipline, can help cover the entire syllabus systematically while leaving enough time for revision before the exam.
+              </p>
+            </article>
+            <article>
+              <h3>Top 5 Study Techniques for NEET</h3>
+              <p>
+                NEET preparation requires strategic and efficient study methods. First, use active recall by testing yourself instead of passively reading notes. Second, spaced repetition helps retain information for longer periods. Third, mock tests and past papers familiarize you with exam patterns and improve speed. Fourth, concept mapping and diagrams help in remembering complex processes, especially in Biology. Fifth, focused breaks prevent burnout; studying continuously for hours without rest reduces productivity. Combining these techniques ensures better retention, faster problem-solving, and improved confidence during the exam. Regular evaluation and adaptation of these methods are key to success.
+              </p>
+            </article>
+            <article>
+              <h3>Importance of Mock Tests and Analysis</h3>
+              <p>Mock tests are essential for NEET preparation. They simulate exam conditions, helping you manage time pressure and reduce anxiety. Attempting tests regularly enhances your speed, accuracy, and understanding of the exam pattern. However, simply attempting tests is not enough. Spend time analyzing mistakes to identify weak areas and recurring errors. Keep a record of scores and progress to monitor improvement. Incorporate strategies like skipping time-consuming questions first or revising incorrect answers. Mock tests also boost confidence and mental stamina, ensuring that you remain calm and composed on the exam day.
+              </p>
+            </article>
+        </section>
+      </div>
+
+      <!-- Right side (sidebar) -->
+      <div class="community-sidebar-container">
+        <aside class="community-sidebar">
+          <h2 class="community-heading">Community Members</h2>
+          <div class="community-members">
+            <ul>
+              {% for member in members %}
+              <li>{{ member }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </aside>
+        <!-- another sidebar below first one in which community social media links r present-->
+        <aside class="community-sidebar">
+          <h2 class="community-heading">Follow us</h2>
+          <div class="community-members">
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <p>&copy; 2025 NEET Droppers. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

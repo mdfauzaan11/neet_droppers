@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEET Droppers</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='home.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>NEET Droppers</h1>
+    </header>
+    <nav>
+      <div class="nav-container">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('study_page') }}">Study Materials</a>
+          <a href="{{ url_for('community_page') }}">Community</a>
+          <a href="{{ url_for('chat_page') }}">Chatbot</a>
+          <a href="#">Login/SignUp</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <h1>Welcome to NEET Droppers</h1>
+      <p>Your journey to success starts here!</p>
+
+      <section>
+        <h2>About Us</h2>
+        <p>
+          NEET Droppers is a dedicated platform for students determined to crack
+          NEET. We provide comprehensive study materials, guidance, and a
+          supportive community.
+        </p>
+        <h2>Why Choose Us?</h2>
+        <ul>
+          <li>Comprehensive Study Materials</li>
+          <li>Regular Mock Tests</li>
+          <li>Personalized Guidance</li>
+          <li>Supportive Community</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Get Started</h2>
+        <p>
+          Ready to take the next step? Fill out our form to join the NEET
+          Droppers community!
+        </p>
+        <div class="button-container">
+          <a href="{{ url_for('form_page') }}" class="button">Join Now</a>
+        </div>
+      </section>
+      <section>
+        <h2>Syllabus</h2>
+        <p>
+          Here is the detailed syllabus for NEET-2026. Make sure to cover all
+          topics thoroughly.
+        </p>
+        <div class="button-container">
+          <a
+            href="{{ url_for('static', filename='neet_sm/syllabus.pdf') }}"
+            download
+            ><button>Click to download</button></a
+          >
+        </div>
+      </section>
+      <section>
+        <h2>Playlists</h2>
+        <p>
+          These are some of the best YouTube playlists for NEET preparation.
+        </p>
+        <div class="playlist">
+          <iframe
+            width="400"
+            height="200"
+            src="https://www.youtube.com/embed/videoseries?list=PLJyab0VQDBGU-gxLqqPPWiMNgbuWb83uY"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            width="400"
+            height="200"
+            src="https://www.youtube.com/embed/videoseries?list=PL8_1l_iSLgyQ1NtwYwmqfmZNeTPI7HDJ7"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            width="400"
+            height="200"
+            src="https://www.youtube.com/embed/videoseries?si=vPGmYRq1sq3A4ypC&amp;list=PL8_1l_iSLgyRwTHNy-8y0rpraKxFck2_n"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            width="400"
+            height="200"
+            src="https://www.youtube.com/embed/videoseries?si=K_9xDIzJBNoYkATJ&amp;list=PLJyab0VQDBGWVYHPLjAHjw9y1YB9Gf4bf"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section>
+        <h2>Mock Tests</h2>
+        <p>Coming Soon...</p>
+        <div class="button-container">
+          <a href="{{ url_for('mocktests') }}" class="button">
+            Take a Mock Test
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating Chatbot Button -->
+    <div id="chatbot-button" onclick="toggleChat()">💬</div>
+
+    <!-- Chatbot Popup -->
+    <div id="chat-popup">
+      <div class="chat-box" id="chat-box"></div>
+      <div style="padding: 8px">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type your question..."
+        />
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <footer>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <p>&copy; 2025 NEET Droppers. All rights reserved.</p>
+    </footer>
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+      }
+
+      function toggleChat() {
+        let chatPopup = document.getElementById("chat-popup");
+        if (
+          chatPopup.style.display === "none" ||
+          chatPopup.style.display === ""
+        ) {
+          chatPopup.style.display = "block";
+        } else {
+          chatPopup.style.display = "none";
+        }
+      }
+
+      async function sendMessage() {
+        let input = document.getElementById("user-input").value;
+        if (!input) return;
+
+        let chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += "<p class='user'>You: " + input + "</p>";
+
+        // Loading text
+        chatBox.innerHTML += "<p id='loading'>Bot is typing...</p>";
+
+        let response = await fetch("/chatbot", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        });
+
+        let data = await response.json();
+
+        // Remove loading
+        document.getElementById("loading").remove();
+
+        chatBox.innerHTML += "<p class='bot'>Bot: " + data.reply + "</p>";
+        document.getElementById("user-input").value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    </script>
+  </body>
+</html>
